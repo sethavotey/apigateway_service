@@ -1,11 +1,11 @@
-const express = require('express');
+const express = require('express'); 
 const app = express();
 
 const httpProxy = require('http-proxy');
 const proxy = httpProxy.createProxyServer();
 
 const jwt = require('jsonwebtoken');
-
+const JWT_SECRETE = "347186591486#^%%ABCF*##GHE";
 
 function authToken(req, res, next) {
   const header = req?.headers.authorization;
@@ -56,3 +56,5 @@ app.use('/user', authToken, (req, res) => {
 app.listen(4000, () => {
   console.log("API Gateway Service is running on PORT NO : 4000");
 });
+
+
