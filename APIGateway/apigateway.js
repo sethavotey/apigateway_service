@@ -32,25 +32,25 @@ function authRole(role) {
 // Registration microservice — no auth
 app.use('/reg', (req, res) => {
   console.log("INSIDE API GATEWAY REGISTRATION ROUTE");
-  proxy.web(req, res, { target: 'http://98.84.123.179:5001' });
+  proxy.web(req, res, { target: 'http://13.219.102.142:5001' });
 });
 
 // Authentication microservice — no auth
 app.use('/auth', (req, res) => {
   console.log("INSIDE API GATEWAY AUTH ROUTE");
-  proxy.web(req, res, { target: 'http://98.84.123.179:5002' });
+  proxy.web(req, res, { target: 'http://54.197.25.104:5002' });
 });
 
 // Book microservice — auth required (any logged-in user)
 app.use('/book', authToken, (req, res) => {
   console.log("INSIDE API GATEWAY BOOK ROUTE");
-  proxy.web(req, res, { target: 'http://98.84.123.179:5004' });
+  proxy.web(req, res, { target: 'http://54.235.39.91:5004' });
 });
 
 // User microservice — auth required (any logged-in user)
 app.use('/user', authToken, (req, res) => {
   console.log("INSIDE API GATEWAY USER ROUTE");
-  proxy.web(req, res, { target: 'http://98.84.123.179:5005' });
+  proxy.web(req, res, { target: 'http://3.83.92.251:5005' });
 });
 
 app.listen(4000, () => {
